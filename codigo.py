@@ -26,3 +26,30 @@ def Promedio(lista_de_listas,materias):
             promedioFinal=promedioFinal+promedio
         promFinal=promedioFinal/contadorAl
         print(f"Promedio Grupal :{promFinal}")
+
+
+opcion=1
+
+while opcion==1:
+    separador=("*"*40)
+    lista_de_listas=[]
+    contadorMate=0
+    contadorA=0
+    print("*"*20,"Menu Principal","*"*20)
+    materias=int(input("Cuantas Materias llevas : "))
+    alumnos=int(input("Cuantos alumnos son : "))
+    print(separador)
+    for alumno in range(alumnos):
+        contadorA+=1
+        print(f"Alumno {contadorA}:")
+        listaNota=[]
+        lista_de_listas.append(listaNota)
+        contadorMate=0
+        for materia in range(materias):
+            contadorMate+=1
+            nota=int(input(f"Calificacion {contadorMate} : "))
+            print(separador)
+            listaNota.append(nota)
+    Promedio(lista_de_listas,materias)
+    print("1=SI\n2=NO")
+    opcion=int(input("Quieres seguir con el programa : "))
