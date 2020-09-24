@@ -1,4 +1,4 @@
-# Promedio-con-listas y grafica
+# Promedio-con-listas,grafica y .txt
 
 Este codigo te pregunta cuantas materias llevan tus alumnos  y tambien te pregunta cuantos alumnos son en el grupo (Este codigo le podria servir a un maestro)
 
