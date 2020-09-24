@@ -7,6 +7,7 @@ def Promedio(lista_de_listas,materias):
     print(separador)
     promedioFinal=0
     listaP=[]
+    archivoA=open("./archivos/Calificacion.txt" , 'a')
     if menu==1:
         contadorAl=0
         for nivel in lista_de_listas:
@@ -15,9 +16,13 @@ def Promedio(lista_de_listas,materias):
             for elemento in nivel:
                 suma=suma+elemento
             promedio=suma/materias
+            textoa=str(contadorAl)
+            textop=str(promedio)
+            archivoA.write("Promedio del Alumno "+ textoa+" = "+ textop +"\n" )
             listaP.append(promedio)
             print(f"El promedio del alumno {contadorAl} es: {promedio}")
             print(separador)
+        archivoA.close()
             
         print("1=SI\n2=NO")
         submenu=int(input("Quieres Graficar lo promedio de todos los Alumnos : "))
@@ -93,7 +98,7 @@ def Promedio(lista_de_listas,materias):
         
 
 opcion=1
-
+contador=1
 while opcion==1:
     separador=("*"*40)
     lista_de_listas=[]
@@ -117,3 +122,15 @@ while opcion==1:
     Promedio(lista_de_listas,materias)
     print("1=SI\n2=NO")
     opcion=int(input("Quieres seguir con el programa : "))
+    contador=contador+1
+    if opcion==1:
+        archivoA=open("./archivos/Calificacion.txt" , 'a')
+        contadort=str(contador)
+        archivoA.write("-----------------------------------------------------------------" +"\n" )
+        archivoA.close()
+    else:
+        archivoA=open("./archivos/Calificacion.txt" , 'a')
+        contadort=str(contador)
+        archivoA.write("-----------------------------------------------------------------" +"\n" )
+        archivoA.close()
+
