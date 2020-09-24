@@ -9,3 +9,5 @@ si quieres saber el promedio grupal
 Tambien te pregunta si quieres graficarlo para un mejor entendimiento del maestro
 
 lo grafica en barras de colores
+
+tambien el codigo va poniendo todos los promedios en un archivo .txt para mejorar la comprension de los datos  automaticamnete los va separando por lineas y los enumera cada vez que entres al codigo 
