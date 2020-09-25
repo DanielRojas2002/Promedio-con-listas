@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 
 def Promedio(lista_de_listas,materias):
     print(separador)
-    print("1=Quiero saber el promedio de todos los alumnos\n2=Quiero saber el promedio del grupo")
+    print("1=Quiero saber el promedio de todos los alumnos(los agrega a un .txt)\n2=Quiero saber el promedio de todos los alumnos y del grupo(los agrega a un .txt)")
     menu=int(input(":"))
     print(separador)
     promedioFinal=0
@@ -16,6 +16,7 @@ def Promedio(lista_de_listas,materias):
             for elemento in nivel:
                 suma=suma+elemento
             promedio=suma/materias
+            
             textoa=str(contadorAl)
             textop=str(promedio)
             archivoA.write("Promedio del Alumno "+ textoa+" = "+ textop +"\n" )
@@ -23,6 +24,12 @@ def Promedio(lista_de_listas,materias):
             print(f"El promedio del alumno {contadorAl} es: {promedio}")
             print(separador)
         archivoA.close()
+        archivoB=open("./archivos/PromGrupal.txt" , 'a')
+        archivoB.write("///////////////////////////////////////////////////////////////" +"\n" )
+        archivoB.write("No elegiste la funcion de sacar el promedio Grupal"+"\n")
+        archivoB.write("///////////////////////////////////////////////////////////////" +"\n" )
+        archivoB.close()
+
             
         print("1=SI\n2=NO")
         submenu=int(input("Quieres Graficar lo promedio de todos los Alumnos : "))
@@ -54,18 +61,25 @@ def Promedio(lista_de_listas,materias):
                 
     
     elif menu==2:
+        archivoA=open("./archivos/Calificacion.txt" , 'a')
+        archivoB=open("./archivos/PromGrupal.txt" , 'a')
         contadorAl=0
         for nivel in lista_de_listas:
             suma=0
             contadorAl+=1
+
             for elemento in nivel:
                 suma=suma+elemento
             promedio=suma/materias
+
+            textoa=str(contadorAl)
+            textop=str(promedio)
+            archivoA.write("Promedio del Alumno "+ textoa+" = "+ textop +"\n" )
             
-            listaP.append(promedio)
-            
+            listaP.append(promedio)        
             promedioFinal=promedioFinal+promedio
         promFinal=promedioFinal/contadorAl
+
         print(separador)
         print(f"Promedio Grupal :{promFinal}")
         print(separador)
@@ -88,6 +102,7 @@ def Promedio(lista_de_listas,materias):
                 nom="alumno"
                 alumnos=(f"{nom}{nombre}")
                 texto.append(alumnos)
+
             
             plt.grid(True)
             plt.xlabel("Alumnos:")
@@ -95,6 +110,12 @@ def Promedio(lista_de_listas,materias):
             plt.title("PROMEDIO")       
             plt.bar(texto,height=valores,color=colores,width=0.5)
             plt.show()
+
+        textoa=str(contadorA)
+        textop=str(promFinal)
+        archivoB.write("Promedio de los "+ textoa+" Alumnos es "+" = "+ textop +"\n" )
+        archivoB.write("-----------------------------------------------------------------" +"\n" )
+        archivoB.close()
         
 
 opcion=1
